@@ -5,7 +5,6 @@
     <router-link to="/animate">Animate</router-link> |
     <router-link to="/cars">Cars</router-link> |
     <router-link to="/create">Create</router-link>
-
   </div>
 </template>
 

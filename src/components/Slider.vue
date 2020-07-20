@@ -7,19 +7,14 @@
     }"
     :class="{
       onePhoto: images.length === 1,
-      twoPhoto: images.length === 2,
+      twoPhoto: images.length === 2
     }"
-    :itemsToShow="images.length === 1 ? 1 : images.length === 2 ? 2 : itemsToShow"
+    :itemsToShow="
+      images.length === 1 ? 1 : images.length === 2 ? 2 : itemsToShow
+    "
   >
-    <slide
-      v-for="(image, index) in images"
-      :key="index"
-      class="slide"
-    >
-      <img
-        @click="$emit('chooseCar', index)"
-        :src="image.img"
-      />
+    <slide v-for="(image, index) in images" :key="index" class="slide">
+      <img @click="$emit('chooseCar', index)" :src="image.img" />
     </slide>
     <hooper-pagination slot="hooper-addons"></hooper-pagination>
   </hooper>

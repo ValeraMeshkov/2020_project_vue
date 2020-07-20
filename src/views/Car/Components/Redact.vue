@@ -62,34 +62,28 @@ export default {
     InputFileLoadPoster,
     Icon
   },
-  data () {
-    return {
-    };
+  data() {
+    return {};
   },
-  mounted () {
-  },
+  mounted() {},
   computed: {
     ...mapState({
       car: state => state.car.car
     })
   },
   watch: {
-    car () {
-
-    }
+    car() {}
   },
   methods: {
-    ...mapActions("car", [
-      "putCar",
-    ]),
-    changePerson (obj) {
+    ...mapActions("car", ["putCar"]),
+    changePerson(obj) {
       this.car.person[obj.type] = obj.val;
     },
-    saveCar () {
-      this.$emit('loading')
+    saveCar() {
+      this.$emit("loading");
       this.putCar(this.car);
     },
-    addPoster (img) {
+    addPoster(img) {
       let isPin = this.car.car.images.some(el => {
         return el.pin === true;
       });
@@ -98,7 +92,7 @@ export default {
         pin: isPin ? false : true
       });
     },
-    changeMainPhoto (index) {
+    changeMainPhoto(index) {
       this.car.car.images.forEach((el, i) => {
         if (index === i) {
           this.car.car.images[i].pin = true;
@@ -107,8 +101,8 @@ export default {
         }
       });
     },
-    deletePhoto (index) {
-      this.car.car.images.splice(index, 1)
+    deletePhoto(index) {
+      this.car.car.images.splice(index, 1);
       let isPin = this.car.car.images.some(el => {
         return el.pin === true;
       });

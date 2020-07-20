@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import { mapState, mapActions } from "vuex";
 import Icon from "@/components/Icon.vue";
 
@@ -35,28 +34,27 @@ export default {
       dataBase: state => state.createCar.dataBase,
       car: state => state.createCar.carAds.car
     }),
-    getModels () {
+    getModels() {
       let arr = [];
-      let brand = this.dataBase.find((el) => el.brand === this.car.brand)
-      brand.models.forEach(el => arr.push(el.model))
-      return arr
+      let brand = this.dataBase.find(el => el.brand === this.car.brand);
+      brand.models.forEach(el => arr.push(el.model));
+      return arr;
     }
   },
-  data () {
-    return {
-    };
+  data() {
+    return {};
   },
   methods: {
     ...mapActions("createCar", ["getCarAdsCar"]),
-    chooseModel (value) {
-      this.$emit("chooseModel")
+    chooseModel(value) {
+      this.$emit("chooseModel");
       if (value) {
-        this.getCarAdsCar({ prop: 'model', value: value })
+        this.getCarAdsCar({ prop: "model", value: value });
       } else {
-        this.getCarAdsCar({ prop: 'model', value: '' })
-        this.getCarAdsCar({ prop: 'year', value: '' })
+        this.getCarAdsCar({ prop: "model", value: "" });
+        this.getCarAdsCar({ prop: "year", value: "" });
       }
-    },
+    }
   }
 };
 </script>

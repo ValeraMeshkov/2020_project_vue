@@ -16,7 +16,6 @@
 </template>
 
 <script>
-
 import { mapState, mapActions } from "vuex";
 import Input from "@/components/Input/Input.vue";
 import Icon from "@/components/Icon.vue";
@@ -38,35 +37,34 @@ export default {
       dataBase: state => state.createCar.dataBase,
       brand: state => state.createCar.carAds.car.brand
     }),
-    getBrands () {
+    getBrands() {
       let arr = [];
-      this.dataBase
-        .forEach(el => {
-          if (el.brand.toLowerCase().indexOf(this.inputBrand) !== -1) {
-            arr.push(el.brand)
-          }
-        });
-      return arr
+      this.dataBase.forEach(el => {
+        if (el.brand.toLowerCase().indexOf(this.inputBrand) !== -1) {
+          arr.push(el.brand);
+        }
+      });
+      return arr;
     }
   },
-  data () {
+  data() {
     return {
-      inputBrand: ''
+      inputBrand: ""
     };
   },
   methods: {
     ...mapActions("createCar", ["getCarAdsCar"]),
-    chooseBrand (value) {
-      this.$emit("chooseBrand")
+    chooseBrand(value) {
+      this.$emit("chooseBrand");
       if (value) {
-        this.getCarAdsCar({ prop: 'brand', value: value })
+        this.getCarAdsCar({ prop: "brand", value: value });
       } else {
-        this.getCarAdsCar({ prop: 'brand', value: '' })
-        this.getCarAdsCar({ prop: 'model', value: '' })
-        this.getCarAdsCar({ prop: 'year', value: '' })
+        this.getCarAdsCar({ prop: "brand", value: "" });
+        this.getCarAdsCar({ prop: "model", value: "" });
+        this.getCarAdsCar({ prop: "year", value: "" });
       }
     },
-    changeInputBrand (obj) {
+    changeInputBrand(obj) {
       this.inputBrand = obj.val.toLowerCase();
     }
   }

@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import { mapState, mapActions } from "vuex";
 import MapBelarus from "@/components/MapBelarus.vue";
 
@@ -19,19 +18,17 @@ export default {
   components: {
     MapBelarus
   },
-  props: {
-  },
-  mounted () {
-  },
+  props: {},
+  mounted() {},
   computed: {
     ...mapState({
       map: state => state.createCar.carAds.person.map
-    }),
+    })
   },
   methods: {
     ...mapActions("createCar", ["getMap"]),
-    changeMap (obj) {
-      this.getMap(obj)
+    changeMap(obj) {
+      this.getMap(obj);
     }
   }
 };

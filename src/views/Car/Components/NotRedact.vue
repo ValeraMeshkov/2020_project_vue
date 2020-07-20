@@ -27,13 +27,13 @@ export default {
     Icon,
     Slider
   },
-  data () {
+  data() {
     return {
       bigImage: 0
     };
   },
-  mounted () {
-    this.getBigImage()
+  mounted() {
+    this.getBigImage();
   },
   computed: {
     ...mapState({
@@ -41,10 +41,10 @@ export default {
     })
   },
   methods: {
-    getBigImage () {
-      this.bigImage = this.car.car.images.findIndex((el) => el.pin)
+    getBigImage() {
+      this.bigImage = this.car.car.images.findIndex(el => el.pin);
     },
-    changeBigImage (val) {
+    changeBigImage(val) {
       this.bigImage = val;
     }
   }

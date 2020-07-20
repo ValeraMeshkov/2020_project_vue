@@ -28,10 +28,10 @@ export default {
   },
   computed: {
     input: {
-      get () {
+      get() {
         return this.value;
       },
-      set (val) {
+      set(val) {
         this.$emit("input", {
           type: this.typeText,
           val: val

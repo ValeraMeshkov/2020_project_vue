@@ -8,30 +8,30 @@ export default {
    * @param {Array} params.names - [uuid, uuid2, uui3]
    * @returns {Promise}
    */
-  getCarAdsCar (context, obj) {
+  getCarAdsCar(context, obj) {
     context.commit("setCarAdsCar", obj);
   },
-  getMap (context, obj) {
+  getMap(context, obj) {
     context.commit("setMap", obj);
   },
-  getCarAdsColor (context, value) {
+  getCarAdsColor(context, value) {
     context.commit("setCarAdsColor", value);
   },
-  imagesAdd (context, data) {
+  imagesAdd(context, data) {
     context.commit("setImagesAdd", data);
   },
-  imagesDelete (context, data) {
+  imagesDelete(context, data) {
     context.commit("setImagesDelete", data);
   },
-  imagesMain (context, data) {
+  imagesMain(context, data) {
     context.commit("setImagesMain", data);
   },
-  async getDataBase (context) {
+  async getDataBase(context) {
     const res = await axios.get(`${URL}/dataBase`);
     context.commit("setdataBase", res.data);
   },
-  async addNewAds (context) {
+  async addNewAds(context) {
     await axios.post(`${URL}/cars`, context.state.carAds);
     context.commit("setClearAds");
   }
-}
+};

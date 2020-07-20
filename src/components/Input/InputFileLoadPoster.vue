@@ -41,15 +41,17 @@ export default {
      * Добавление  и эмит картинки
      * @param {Object} e - евент
      */
-    addImage (e) {
+    addImage(e) {
       e.target.files.forEach((el, index) => {
         let file = e.target.files[index];
         let filereader = new FileReader();
         filereader.readAsDataURL(file);
         filereader.onload = e => {
-          if (e.target.result.indexOf('data:image/jpg') > -1 ||
-            e.target.result.indexOf('data:image/jpeg') > -1 ||
-            e.target.result.indexOf('data:image/png') > -1) {
+          if (
+            e.target.result.indexOf("data:image/jpg") > -1 ||
+            e.target.result.indexOf("data:image/jpeg") > -1 ||
+            e.target.result.indexOf("data:image/png") > -1
+          ) {
             this.$emit("addPoster", {
               img: e.target.result
             });

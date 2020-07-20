@@ -28,21 +28,21 @@ export default {
     },
     value: {
       type: String,
-      default: ''
+      default: ""
     }
   },
-  data () {
+  data() {
     return {
-      tooltipShow: ''
-    }
+      tooltipShow: ""
+    };
   },
   computed: {
     checkColor: {
-      get () {
-        return this.value
+      get() {
+        return this.value;
       },
-      set (val) {
-        this.$emit('changeValue', val)
+      set(val) {
+        this.$emit("changeValue", val);
       }
     }
     // input: {

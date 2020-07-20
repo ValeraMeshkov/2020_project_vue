@@ -27,7 +27,7 @@ export default {
     Redact,
     NotRedact
   },
-  data () {
+  data() {
     return {
       loading: true,
       isOpenRedact: false,
@@ -40,7 +40,7 @@ export default {
       }
     };
   },
-  mounted () {
+  mounted() {
     this.getCarId(this.$route.params.id);
   },
   computed: {
@@ -49,15 +49,13 @@ export default {
     })
   },
   watch: {
-    car () {
+    car() {
       this.isOpenRedact = false;
       this.loading = false;
     }
   },
   methods: {
-    ...mapActions("car", [
-      "getCarId",
-    ]),
+    ...mapActions("car", ["getCarId"])
   }
 };
 </script>

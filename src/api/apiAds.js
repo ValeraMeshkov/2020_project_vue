@@ -6,9 +6,9 @@ export const emptyAds = {
     email: "",
     phone: "",
     map: {
-      city: '',
-      subregion: '',
-      voblast: ''
+      city: "",
+      subregion: "",
+      voblast: ""
     }
   },
   car: {
@@ -18,8 +18,8 @@ export const emptyAds = {
     year: "",
     color: ""
   }
-}
+};
 
-export const getEmptyAds = function () {
+export const getEmptyAds = function() {
   return JSON.parse(JSON.stringify(emptyAds));
-}
+};
