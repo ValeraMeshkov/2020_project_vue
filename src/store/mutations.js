@@ -1,5 +1,5 @@
 export default {
-    setColors (state, data) {
-        state.colors = data;
-    }
-}
+  setColors(state, data) {
+    state.colors = data;
+  }
+};

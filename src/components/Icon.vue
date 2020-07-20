@@ -14,10 +14,7 @@
       v-if="active"
       :src="require(`@/assets/ic-${iconHover ? iconHover : icon}.svg`)"
     />
-    <img
-      v-else
-      :src="require(`@/assets/ic-${icon}.svg`)"
-    />
+    <img v-else :src="require(`@/assets/ic-${icon}.svg`)" />
   </div>
 </template>
 
@@ -46,7 +43,7 @@ export default {
       default: "0px"
     }
   },
-  data () {
+  data() {
     return {
       active: false
     };

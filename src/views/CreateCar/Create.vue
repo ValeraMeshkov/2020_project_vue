@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from "vuex";
 
 import Spinner from "@/components/Spinner.vue";
 import Brands from "./Components/Brands.vue";
@@ -49,10 +49,10 @@ export default {
   computed: {
     ...mapState({
       dataBase: state => state.createCar.dataBase,
-      carAds: state => state.createCar.carAds,
-    }),
+      carAds: state => state.createCar.carAds
+    })
   },
-  data () {
+  data() {
     return {
       error: {
         brand: false,
@@ -62,27 +62,27 @@ export default {
       }
     };
   },
-  mounted () {
-    this.getDataBase()
+  mounted() {
+    this.getDataBase();
   },
   methods: {
     ...mapActions("createCar", ["addNewAds", "getDataBase"]),
-    async addCar () {
+    async addCar() {
       if (!this.carAds.car.brand) {
-        this.error.brand = true
+        this.error.brand = true;
       } else if (!this.carAds.car.model) {
-        this.error.model = true
+        this.error.model = true;
       } else if (!this.carAds.car.year) {
-        this.error.year = true
+        this.error.year = true;
       }
       if (!this.carAds.car.images.length) {
-        this.error.images = true
+        this.error.images = true;
       }
       for (const key in this.error) {
-        if (this.error[key] === true) return
+        if (this.error[key] === true) return;
       }
-      await this.addNewAds()
-      this.$router.push('/cars')
+      await this.addNewAds();
+      this.$router.push("/cars");
     }
   }
 };

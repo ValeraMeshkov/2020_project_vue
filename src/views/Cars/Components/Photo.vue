@@ -12,16 +12,15 @@
 </template>
 
 <script>
-
 export default {
   name: "Home",
-  data () {
+  data() {
     return {
       bigImage: 0
     };
   },
-  mounted () {
-    this.changeBigImage()
+  mounted() {
+    this.changeBigImage();
   },
   props: {
     images: {
@@ -30,11 +29,11 @@ export default {
     }
   },
   methods: {
-    changeShowPhoto (index) {
-      this.bigImage = index
+    changeShowPhoto(index) {
+      this.bigImage = index;
     },
-    changeBigImage () {
-      this.bigImage = this.images.findIndex((el) => el.pin === true)
+    changeBigImage() {
+      this.bigImage = this.images.findIndex(el => el.pin === true);
     }
   }
 };

@@ -38,8 +38,8 @@
 import { mapState, mapActions } from "vuex";
 import Spinner from "@/components/Spinner.vue";
 import Photo from "./Components/Photo.vue";
-import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import '../../../node_modules/vue-ads-pagination/dist/vue-ads-pagination.css';
+import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+import "../../../node_modules/vue-ads-pagination/dist/vue-ads-pagination.css";
 import VueAdsPagination from "vue-ads-pagination";
 import Icon from "@/components/Icon.vue";
 
@@ -59,27 +59,27 @@ export default {
       carsLength: state => state.cars.carsLength
     }),
     getPageCount: {
-      get () {
+      get() {
         this.getCarsShow({ count: this.carsCount, page: this.carsPage });
         return this.carsCount;
       },
-      set (val) {
+      set(val) {
         this.changeCarsCount(Number(val));
       }
     }
   },
   watch: {
-    cars () {
+    cars() {
       this.loading = false;
     }
   },
-  data () {
+  data() {
     return {
       loading: true,
       bigImage: 0
     };
   },
-  mounted () {
+  mounted() {
     this.getCarsLength();
   },
   methods: {
@@ -88,19 +88,19 @@ export default {
       "getCarsShow",
       "changeCarPage",
       "changeCarsCount",
-      "getCarsLength",
+      "getCarsLength"
     ]),
-    async deleteAds (id) {
+    async deleteAds(id) {
       await this.getDeleteAds(id);
       this.getCarsShow({ count: this.carsCount, page: this.carsPage });
     },
-    pageChange (page) {
+    pageChange(page) {
       this.loading = true;
       this.changeCarPage(page + 1);
       this.getCarsShow({ count: this.carsCount, page: this.carsPage });
     },
-    changeShowPhoto (index) {
-      this.bigImage = index
+    changeShowPhoto(index) {
+      this.bigImage = index;
     }
   }
 };

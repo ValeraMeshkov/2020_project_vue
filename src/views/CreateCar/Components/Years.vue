@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import { mapState, mapActions } from "vuex";
 import Spinner from "@/components/Spinner.vue";
 import Icon from "@/components/Icon.vue";
@@ -37,28 +36,27 @@ export default {
       dataBase: state => state.createCar.dataBase,
       car: state => state.createCar.carAds.car
     }),
-    getYears () {
+    getYears() {
       let arr = [];
-      let thisBrand = this.dataBase.find((el) => el.brand === this.car.brand)
-      let thisModel = thisBrand.models.find((el) => el.model === this.car.model)
+      let thisBrand = this.dataBase.find(el => el.brand === this.car.brand);
+      let thisModel = thisBrand.models.find(el => el.model === this.car.model);
       thisModel.years.forEach(el => arr.push(el.year));
-      return arr
+      return arr;
     }
   },
-  data () {
-    return {
-    };
+  data() {
+    return {};
   },
   methods: {
     ...mapActions("createCar", ["getCarAdsCar"]),
-    chooseYear (value) {
-      this.$emit("chooseYear")
+    chooseYear(value) {
+      this.$emit("chooseYear");
       if (value) {
-        this.getCarAdsCar({ prop: 'year', value: value })
+        this.getCarAdsCar({ prop: "year", value: value });
       } else {
-        this.getCarAdsCar({ prop: 'year', value: '' })
+        this.getCarAdsCar({ prop: "year", value: "" });
       }
-    },
+    }
   }
 };
 </script>

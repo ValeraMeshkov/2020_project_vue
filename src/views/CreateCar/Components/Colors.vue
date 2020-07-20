@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import { mapState, mapActions } from "vuex";
 import RadioColors from "@/components/Input/RadioColors.vue";
 
@@ -14,25 +13,23 @@ export default {
   components: {
     RadioColors
   },
-  props: {
-
-  },
-  mounted () {
-    this.getColors()
+  props: {},
+  mounted() {
+    this.getColors();
   },
   computed: {
     ...mapState({
       colors: state => state.colors,
-      color: state => state.createCar.carAds.car.color,
-    }),
+      color: state => state.createCar.carAds.car.color
+    })
   },
   methods: {
     ...mapActions({
-      getColors: 'getColors',
+      getColors: "getColors"
     }),
     ...mapActions("createCar", ["getCarAdsColor"]),
-    changeColor (val) {
-      this.getCarAdsColor(val)
+    changeColor(val) {
+      this.getCarAdsColor(val);
     }
   }
 };

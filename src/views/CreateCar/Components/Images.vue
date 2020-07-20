@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapState({
       car: state => state.createCar.carAds.car
-    }),
+    })
   },
   props: {
     error: {
@@ -45,23 +45,19 @@ export default {
     }
   },
   methods: {
-    ...mapActions("createCar", [
-      "imagesAdd",
-      "imagesDelete",
-      "imagesMain"
-    ]),
-    addPoster (img) {
-      this.$emit("chooseImages")
+    ...mapActions("createCar", ["imagesAdd", "imagesDelete", "imagesMain"]),
+    addPoster(img) {
+      this.$emit("chooseImages");
       this.imagesAdd({
         img: img.img,
         pin: this.car.images.length ? false : true
-      })
+      });
     },
-    changeMainPhoto (index) {
-      this.imagesMain(index)
+    changeMainPhoto(index) {
+      this.imagesMain(index);
     },
-    deletePhoto (index) {
-      this.imagesDelete(index)
+    deletePhoto(index) {
+      this.imagesDelete(index);
     }
   }
 };
